@@ -41,25 +41,25 @@ def test_get():
         "data": {"sample_key": "sample_value"}
     }), 200
 
-@app.route('/api/test', methods=['POST'])
-def test_post():
-    """Simple POST endpoint"""
-    try:
-        data = request.get_json()
-        app.logger.info(f'POST request received with data: {data}')
+# @app.route('/api/test', methods=['POST'])
+# def test_post():
+#     """Simple POST endpoint"""
+#     try:
+#         data = request.get_json()
+#         app.logger.info(f'POST request received with data: {data}')
         
-        if not data or 'name' not in data:
-            return jsonify({"error": "Missing required parameter 'name'"}), 400
+#         if not data or 'name' not in data:
+#             return jsonify({"error": "Missing required parameter 'name'"}), 400
             
-        return jsonify({
-            "message": "POST request successful",
-            "received_data": data,
-            "processed": f"Hello, {data['name']}!"
-        }), 200
+#         return jsonify({
+#             "message": "POST request successful",
+#             "received_data": data,
+#             "processed": f"Hello, {data['name']}!"
+#         }), 200
         
-    except Exception as e:
-        app.logger.error(f'Error processing POST request: {str(e)}')
-        return jsonify({"error": "Internal server error"}), 500
+#     except Exception as e:
+#         app.logger.error(f'Error processing POST request: {str(e)}')
+#         # return jsonify({"error": "Internal server error"}), 500
 
 # Error handlers
 @app.errorhandler(404)
